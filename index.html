@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: The Evolution of AI - From Sci-Fi to Reality</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1A1A2E;
+            --text-light: #E0E0E0;
+            --accent-cyan: #00FFFF;
+            --accent-magenta: #FF00FF;
+            --accent-blue: #007BFF;
+            --card-bg: #22223B;
+            --border-color: #4A4A6A;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .flow-arrow::after {
+            content: '→';
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--accent-blue);
+            margin: 0 1rem;
+        }
+        .flow-arrow-down::after {
+            content: '↓';
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--accent-blue);
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold gradient-text">From Sci-Fi to Reality</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-gray-400">An infographic exploring the evolution of Artificial Intelligence, from the pages of speculative fiction to the agentic systems of today.</p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="part1">
+                <h2 class="text-3xl font-bold text-center mb-8">Part I: The Fictional Precursors</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="bg-card-bg p-6 rounded-2xl shadow-lg border border-border-color md:col-span-2 lg:col-span-3">
+                        <h3 class="text-2xl font-bold mb-2 text-white">The Distributed Mind of <span class="text-accent-cyan">Legion</span></h3>
+                        <p class="text-gray-400 mb-6">Brandon Sanderson's *Legion* provides a compelling allegory for multi-agent AI. The protagonist, Stephen Leeds, manages a team of hallucinatory experts ("aspects") to solve problems—a direct parallel to an AI orchestrator delegating tasks to specialized agents.</p>
+                        <div class="flex flex-col md:flex-row items-center justify-center text-center p-4 bg-bg-dark rounded-lg">
+                            <div class="flex-shrink-0">
+                                <div class="p-4 bg-accent-blue/20 border-2 border-accent-blue rounded-full text-white font-bold">Leeds (Orchestrator)</div>
+                            </div>
+                            <div class="hidden md:block flow-arrow"></div>
+                            <div class="block md:hidden flow-arrow-down"></div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-3 bg-card-bg border border-border-color rounded-lg">Ivy (Psychologist)</div>
+                                <div class="p-3 bg-card-bg border border-border-color rounded-lg">J.C. (Weapons Expert)</div>
+                                <div class="p-3 bg-card-bg border border-border-color rounded-lg">Tobias (Historian)</div>
+                                <div class="p-3 bg-card-bg border border-border-color rounded-lg">Kalyani (Linguist)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-card-bg p-6 rounded-2xl shadow-lg border border-border-color lg:col-span-2">
+                        <h3 class="text-2xl font-bold mb-2 text-white">Lem's <span class="text-accent-magenta">Cyberiad</span>: Fables of Creation</h3>
+                        <p class="text-gray-400 mb-4">Stanisław Lem's fables satirically explored the paradoxes of AI. His "Electronic Bard" presaged debates on AI creativity, while other tales highlighted the critical importance of precise instruction—a core challenge in modern prompt engineering.</p>
+                        <div class="chart-container h-64 md:h-72">
+                            <canvas id="lemChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-card-bg p-6 rounded-2xl shadow-lg border border-border-color">
+                        <h3 class="text-2xl font-bold mb-4 text-white">The Canon of AI</h3>
+                        <p class="text-gray-400 mb-6">A rich literary tradition has shaped our understanding of AI, exploring themes from rule-based ethics to the nature of consciousness.</p>
+                         <div class="space-y-4 text-sm">
+                            <div class="p-3 bg-bg-dark rounded-lg border border-border-color"><strong>I, Robot (Asimov):</strong> Rule-based ethics & paradoxes.</div>
+                            <div class="p-3 bg-bg-dark rounded-lg border border-border-color"><strong>Neuromancer (Gibson):</strong> Emergent goals & AI agency.</div>
+                            <div class="p-3 bg-bg-dark rounded-lg border border-border-color"><strong>Murderbot (Wells):</strong> Free will & autonomy.</div>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="part2">
+                <h2 class="text-3xl font-bold text-center mb-8">Part II: The Technological Trajectory</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-card-bg p-6 rounded-2xl shadow-lg border border-border-color md:col-span-2">
+                        <h3 class="text-2xl font-bold mb-4 text-white">From Scripts to <span class="text-accent-cyan">Sentences</span></h3>
+                        <p class="text-gray-400 mb-6">Conversational AI evolved from simple, pattern-matching scripts to probability-based Large Language Models (LLMs). This timeline highlights the leap from reflection to true generation.</p>
+                        <div class="relative w-full">
+                            <div class="absolute left-0 top-1/2 w-full h-0.5 bg-border-color"></div>
+                            <div class="relative flex justify-between">
+                                <div class="text-center">
+                                    <div class="relative z-10 w-4 h-4 bg-accent-blue rounded-full mx-auto border-4 border-bg-dark"></div>
+                                    <p class="mt-2 font-bold">1966</p><p class="text-xs text-gray-400">ELIZA</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="relative z-10 w-4 h-4 bg-accent-blue rounded-full mx-auto border-4 border-bg-dark"></div>
+                                    <p class="mt-2 font-bold">1972</p><p class="text-xs text-gray-400">PARRY</p>
+                                </div>
+                                 <div class="text-center">
+                                    <div class="relative z-10 w-4 h-4 bg-accent-magenta rounded-full mx-auto border-4 border-bg-dark"></div>
+                                    <p class="mt-2 font-bold">2017</p><p class="text-xs text-gray-400">Transformers</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="relative z-10 w-4 h-4 bg-accent-cyan rounded-full mx-auto border-4 border-bg-dark"></div>
+                                    <p class="mt-2 font-bold">2020s</p><p class="text-xs text-gray-400">Agentic Era</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-card-bg p-6 rounded-2xl shadow-lg border border-border-color">
+                        <h3 class="text-2xl font-bold mb-2 text-white">The <span class="text-accent-magenta">Agentic</span> AI Workflow</h3>
+                        <p class="text-gray-400 mb-6">Agentic AI moves beyond generating content to taking action. It accomplishes this through structured workflows, breaking down goals, using tools, and even critiquing its own work to improve the final outcome.</p>
+                        <div class="flex flex-col items-center justify-center text-center p-4 space-y-2">
+                            <div class="p-3 bg-bg-dark border border-border-color rounded-lg w-full">Task Decomposition</div>
+                            <div class="flow-arrow-down text-accent-magenta"></div>
+                            <div class="p-3 bg-bg-dark border border-border-color rounded-lg w-full">Tool Use (APIs)</div>
+                             <div class="flow-arrow-down text-accent-magenta"></div>
+                             <div class="p-3 bg-bg-dark border border-border-color rounded-lg w-full">Reflection & Self-Critique</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-card-bg p-6 rounded-2xl shadow-lg border border-border-color">
+                        <h3 class="text-2xl font-bold mb-4 text-white">Protocols of <span class="text-accent-blue">Communication</span></h3>
+                        <p class="text-gray-400 mb-6">For agents to collaborate and use tools effectively, standardized protocols are essential. MCP acts like a universal adapter for tools, while A2A is a universal language for agent-to-agent delegation.</p>
+                        <div class="chart-container h-64 md:h-72">
+                            <canvas id="protocolChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="part3">
+                <h2 class="text-3xl font-bold text-center mb-8">Part III: The Converging Futures</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-card-bg p-6 rounded-2xl shadow-lg border border-border-color">
+                        <h3 class="text-2xl font-bold mb-2 text-white">Critiques of the <span class="text-accent-cyan">Singularity</span></h3>
+                        <p class="text-gray-400 mb-4">While the idea of a "superintelligence" is compelling, critics argue the theory oversimplifies intelligence and distracts from present-day harms like algorithmic bias and job displacement.</p>
+                        <div class="chart-container h-64 md:h-72">
+                            <canvas id="singularityCritiqueChart"></canvas>
+                        </div>
+                    </div>
+                     <div class="bg-card-bg p-6 rounded-2xl shadow-lg border border-border-color">
+                        <h3 class="text-2xl font-bold mb-2 text-white">The Ethics of <span class="text-accent-magenta">Agency</span></h3>
+                        <p class="text-gray-400 mb-4">Agentic AI introduces urgent ethical dilemmas. Accountability for autonomous actions is unclear, and the potential for amplifying bias or manipulating human behavior is significant.</p>
+                        <div class="text-center my-6">
+                            <div class="text-6xl font-extrabold" style="color: var(--accent-magenta);">40%</div>
+                            <p class="mt-2 text-gray-400">of large enterprises predicted by Gartner to use AI to measure and manipulate employee mood by 2028.</p>
+                        </div>
+                         <div class="text-center my-6">
+                            <div class="text-6xl font-extrabold" style="color: var(--accent-magenta);">?</div>
+                            <p class="mt-2 text-gray-400">The "Accountability Vacuum": When an autonomous agent causes harm, who is legally responsible?</p>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+            
+            <footer class="text-center py-12">
+                 <h2 class="text-3xl font-bold mb-4">Key Questions for Our AI Future</h2>
+                 <ul class="max-w-3xl mx-auto space-y-4 text-gray-300">
+                    <li class="p-4 bg-card-bg border border-border-color rounded-lg">How do we solve the control problem for the powerful, autonomous systems we are deploying *today*?</li>
+                    <li class="p-4 bg-card-bg border border-border-color rounded-lg">What is the future of human work and creativity in a world where our cognitive labor is no longer unique?</li>
+                    <li class="p-4 bg-card-bg border border-border-color rounded-lg">How can we ensure agentic AI becomes a force for shared prosperity, not greater inequality?</li>
+                 </ul>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const CHART_COLORS = {
+                cyan: 'rgba(0, 255, 255, 0.7)',
+                magenta: 'rgba(255, 0, 255, 0.7)',
+                blue: 'rgba(0, 123, 255, 0.7)',
+                cyan_border: 'rgba(0, 255, 255, 1)',
+                magenta_border: 'rgba(255, 0, 255, 1)',
+                blue_border: 'rgba(0, 123, 255, 1)',
+                grid: 'rgba(74, 74, 106, 0.5)',
+                ticks: '#E0E0E0',
+                tooltip_bg: '#1A1A2E'
+            };
+
+            const globalChartOptions = {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: CHART_COLORS.ticks,
+                            font: { size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: CHART_COLORS.tooltip_bg,
+                        titleColor: CHART_COLORS.ticks,
+                        bodyColor: CHART_COLORS.ticks,
+                        borderColor: CHART_COLORS.border_color,
+                        borderWidth: 1,
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: CHART_COLORS.grid },
+                        ticks: { color: CHART_COLORS.ticks, font: { size: 10 } }
+                    },
+                    y: {
+                        grid: { color: CHART_COLORS.grid },
+                        ticks: { color: CHART_COLORS.ticks },
+                        beginAtZero: true
+                    }
+                }
+            };
+            
+            function wrapLabels(label, maxLength = 16) {
+                if (typeof label !== 'string' || label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + word).length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                }
+                lines.push(currentLine.trim());
+                return lines.filter(line => line.length > 0);
+            }
+            
+            new Chart(document.getElementById('lemChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Creativity', 'Logic Paradoxes', 'Ethics', 'Language Limits'].map(l => wrapLabels(l)),
+                    datasets: [{
+                        label: 'Prominence in The Cyberiad',
+                        data: [90, 75, 60, 85],
+                        backgroundColor: [CHART_COLORS.magenta, CHART_COLORS.cyan, CHART_COLORS.blue, CHART_COLORS.magenta],
+                        borderColor: [CHART_COLORS.magenta_border, CHART_COLORS.cyan_border, CHART_COLORS.blue_border, CHART_COLORS.magenta_border],
+                        borderWidth: 2
+                    }]
+                },
+                options: { ...globalChartOptions, indexAxis: 'y' }
+            });
+
+            new Chart(document.getElementById('protocolChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['MCP: Agent-to-Tool', 'A2A: Agent-to-Agent'],
+                    datasets: [{
+                        data: [60, 40],
+                        backgroundColor: [CHART_COLORS.blue, CHART_COLORS.cyan],
+                        borderColor: [CHART_COLORS.blue_border, CHART_COLORS.cyan_border],
+                        borderWidth: 2
+                    }]
+                },
+                options: { ...globalChartOptions, scales: {} }
+            });
+
+            new Chart(document.getElementById('singularityCritiqueChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Unidimensional Intelligence', 'Distraction from Harms', '"Builders vs. Theorists" Parable', 'Physical Constraints', 'Data Limitations'].map(l => wrapLabels(l)),
+                    datasets: [{
+                        label: 'Critique Strength',
+                        data: [8, 9, 7, 6, 7],
+                        backgroundColor: 'rgba(0, 255, 255, 0.2)',
+                        borderColor: CHART_COLORS.cyan_border,
+                        pointBackgroundColor: CHART_COLORS.cyan_border,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: CHART_COLORS.cyan_border,
+                    }]
+                },
+                options: {
+                    ...globalChartOptions,
+                    scales: {
+                        r: {
+                            angleLines: { color: CHART_COLORS.grid },
+                            grid: { color: CHART_COLORS.grid },
+                            pointLabels: { color: CHART_COLORS.ticks, font: { size: 10 } },
+                            ticks: { display: false }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
